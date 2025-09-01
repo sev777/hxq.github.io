@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xiaoqi Han | Homepage</title>
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/emoji/48/robot-emoji.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 80px;
+            background-color: #ffffff;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .left-section {
+            width: 25%;
+            position: fixed;
+            padding: 0 30px;
+            background-color: #ffffff;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            top: 60px;
+            left: 180px;
+        }
+
+        .profile-image {
+            width: 230px;
+            height: 230px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info {
+            text-align: left;
+            margin-top: 15px;
+            font-size: 0.9em;
+            font-weight: 400;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            font-family: 'Inter', sans-serif;
+            width: 100%;
+        }
+
+        .contact-info .emoji {
+            margin-right: 10px;
+            font-size: 1.2em;
+            flex-shrink: 0;
+        }
+
+        .social-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .social-links a {
+            margin: 0 12px;
+            color: #333;
+            text-decoration: none;
+            font-weight: normal;
+        }
+
+        .social-links svg {
+            fill: #000000;  /* 设置图标颜色 */
+            transition: fill 0.2s ease;
+        }
+
+        .social-links a:hover svg {
+            fill: #666666;  /* 悬停时的颜色 */
+        }
+
+        .social-links i {
+            font-size: 22px;
+            color: #000000;
+            transition: color 0.2s ease;
+        }
+
+        .social-links a:hover i {
+            color: #666666;
+        }
+
+        .right-section {
+            width: 75%;
+            margin-left: 25%;
+            padding: 30px 10px 40px 100px;
+            margin-right: 30px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin: 20px 0 10px 0;
+            color: #000000;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-weight: 400;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+
+        .left-section h2 {
+            margin: 15px 0 8px 0;
+            font-size: 1.6em;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .left-section h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.6em;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .publication {
+            margin-bottom: 12px;  /* 从20px减少到12px */
+            padding: 12px;  /* 从15px减少到12px */
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .publication:hover {
+            border-color: #e0e0e0;  /* hover时边框变深 */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);  /* hover时添加轻微阴影 */
+            transform: translateY(-1px);  /* hover时轻微上浮 */
+        }
+
+        .publication-title {
+            /* text-align: justify; */
+            word-break: break-word;
+            hyphens: auto;
+            font-weight: 500;
+            font-size: 0.9em;
+            margin-bottom: 4px;
+            color: #000000;
+            line-height: 1.3;
+        }
+
+        .publication-authors {
+            color: #666666;
+            margin-bottom: 4px;
+            font-size: 0.8em;
+        }
+
+        .publication-authors strong {
+            color: #000000;
+            font-weight: 500;
+        }
+
+        .publication-venue {
+            display: inline-block;
+            padding: 2px 6px;
+            background-color: #f5f5f5;
+            /* border: 1px solid #000000; */
+            border-radius: 4px;
+            font-size: 0.7em;
+            color: #000000;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            width: 90px;
+            text-align: center;
+        }
+
+        .publication-links a {
+            display: inline-block;
+            padding: 2px 6px;
+            background-color: #ffffff;  /* 白色背景 */
+            border: 1px solid #000000;  /* 黑色边框 */
+            border-radius: 4px;
+            color: #000000;  /* 黑色字体 */
+            text-decoration: none;
+            font-size: 0.7em;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .publication-links a:hover {
+            background-color: #f8f8f8;  /* 悬停时背景色略微变灰 */
+            transform: translateY(-0.5px);  /* 轻微上浮效果 */
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);  /* 添加阴影效果 */
+        }
+
+        .publication-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .publication-links {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* 普通链接样式 */
+        a {
+            color: #1a1a1a;
+            text-decoration: underline;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #000000;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+        /* 或者使用 Playfair Display */
+        /* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap'); */
+        /* 或者使用 Poppins */
+        /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap'); */
+
+        /* 添加响应式设计 */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 20px;  /* 减小body的内边距 */
+            }
+
+            .container {
+                flex-direction: column;  /* 改为纵向布局 */
+            }
+
+            .left-section {
+                position: relative;  /* 取消固定定位 */
+                width: 100%;  /* 占满宽度 */
+                left: 0;  /* 重置左侧位置 */
+                top: 0;
+                padding: 20px 0;
+                margin-bottom: 30px;
+            }
+
+            .right-section {
+                width: 100%;  /* 占满宽度 */
+                margin-left: 0;  /* 移除左侧margin */
+                padding: 0;  /* 移除内边距 */
+            }
+
+            .profile-image {
+                width: 180px;  /* 稍微减小头像尺寸 */
+                height: 180px;
+            }
+
+            .contact-info {
+                width: 100%;  /* 联系信息占满宽度 */
+                max-width: 300px;  /* 但限制最大宽度 */
+            }
+
+            .publication-meta {
+                flex-wrap: wrap;  /* 允许换行 */
+                gap: 10px;  /* 减小间距 */
+            }
+
+            .publication-venue {
+                width: 90px;  /* 稍微减小宽度 */
+                font-size: 0.65em;  /* 减小字体 */
+            }
+
+            .publication-links a {
+                font-size: 0.65em;  /* 减小字体 */
+            }
+
+            .publication-title {
+                font-size: 0.85em;  /* 减小标题字体 */
+            }
+
+            .publication-authors {
+                font-size: 0.75em;  /* 减小作者字体 */
+            }
+        }
+
+        /* 针对更小屏幕的额外调整 */
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <img src="./photo.jpg" alt="Xiaoqi Han" class="profile-image">
+            <h2>Xiaoqi Han</h2>
+            <h3>韩孝奇</h3>
+            <div class="contact-info">
+                <p><span class="emoji">📍</span>Shanxi, China</p>
+                <!-- <p><span class="emoji">💼</span>4th Ph.D student, Shanxi Uni.</p> -->
+                <!-- <p><span class="emoji">🌏</span>a419432571</p> -->
+                <p><span class="emoji">✉️</span>xiaoqisev [AT] 163.com</p>
+            </div>
+            <div class="social-links">
+                <a href="https://scholar.google.com.hk/citations?user=9K5bqZAAAAAJ&hl=en" target="_blank">
+                    <i class="fab fa-google-scholar"></i>
+                </a>
+                <a href="https://github.com/sev777" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <!-- <a href="https://x.com/chen_mingyang" target="_blank">
+                    <i class="fab fa-x-twitter"></i>
+                </a> -->
+            </div>
+        </div>
+
+        <div class="right-section">
+            <section id="about">
+                <h2>About Me</h2>
+                <p style="margin-bottom: 10px;">
+                   I am a fourth-year doctoral student at Shanxi University advised by Prof. <a href="https://cs.sxu.edu.cn/faculty/professor/1448/index.htm">李 茹</a>.  
+                   During my doctoral studies, I was a visiting researcher at <a href="https://www.ed.ac.uk/" target="_blank">The University of Edinburgh</a> under the supervision of Prof. <a href="https://knowledge-representation.org/j.z.pan/" target="_blank">Jeff Z. Pan</a>.
+                </p>
+                <p>
+                     My research focuses on knowledge editing and model editing, and I am also interested in knowledge localization and model interpretability.
+                     Additionally, I have a particular interest in frame semantic parsing, such as <a href=" https://framenet.info">FrameNet</a> and <a href="http://www.cfn-lab.com/">Chinese FrameNet (CFN)</a>, and have participated in the development of the CFN project.
+                </p>
+            </section>
+
+            <section id="publications">
+                <h2>Selected Publications</h2>
+                <p style="font-size: 0.8em; color: #666666; margin: -5px 0 15px 0;">For a complete list of publications, please refer to my <a href="https://scholar.google.com.hk/citations?user=9K5bqZAAAAAJ&hl=en" style="color: #666666;">Google Scholar</a> profile.</p>
+                <div class="publication">
+                    <div class="publication-title">InstructEd: Soft-Instruction Tuning for Model Editing with Hops</div>
+                    <div class="publication-authors"><strong>Xiaoqi Han</strong>, Ru Li, Xiaoli Li, Jiye Liang, Jeff Z.Pan </div>
+                    <div class="publication-meta">
+                        <div class="publication-venue">ACL 2024</div>
+                        <div class="publication-links">
+                            <a href="https://aclanthology.org/2024.findings-acl.888.pdf">Paper</a>
+                            <a href="https://github.com/sev777/InstructED">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="publication">
+                    <div class="publication-title">Improving sequential model editing with fact retrieval</div>
+                    <div class="publication-authors"><strong>Xiaoqi Han</strong>, Ru Li, Hongye Tan, Yuanlong Wang, Qinghua Chai, Jeff Z.Pan</div>
+                    <div class="publication-meta">
+                        <div class="publication-venue">EMNLP 2023</div>
+                        <div class="publication-links">
+                            <a href="https://aclanthology.org/2023.findings-emnlp.749.pdf">Paper</a>
+                            <a href="https://github.com/sev777/RASE">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="publication">
+                    <div class="publication-title">A divide and conquer framework for knowledge editing</div>
+                    <div class="publication-authors"><strong>Xiaoqi Han</strong>, Ru Li, Xiaoqi Li, Jeff Z.Pan</div>
+                    <div class="publication-meta">
+                        <div class="publication-venue">Knowledge-Based Systems 2023</div>
+                        <div class="publication-links">
+                            <a href="https://personal.ntu.edu.sg/xlli/publication/Div.pdf">Paper</a>
+                            <a href="https://github.com/sev777/MOE_for_Editor">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="publication">
+                    <div class="publication-title">A comprehensive overview of cfn from a commonsense perspective</div>
+                    <div class="publication-authors">Li Ru; Zhao Yunxiao; Wang Zhiqiang; Su Xuefeng; Guo Shaoru; Guan Yong; Han Xiaoqi; Zhao Hongyan; </div>
+                    <div class="publication-meta">
+                        <div class="publication-venue">Machine Intelligence Research 2024</div>
+                        <div class="publication-links">
+                            <a href="https://www.mi-research.net/en/article/pdf/preview/10.1007/s11633-023-1450-8.pdf">Paper</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="publication">
+                    <div class="publication-title">GCRC: A new challenging MRC dataset from Gaokao Chinese for explainable evaluation</div>
+                    <div class="publication-authors">Tan Hongye; Wang Xiaoyue; Ji Yu; Li Ru; Li Xiaoli; Hu Zhiwei; Zhao Yunxiao; Han Xiaoqi; </div>
+                    <div class="publication-meta">
+                        <div class="publication-venue">ACL 2021</div>
+                        <div class="publication-links">
+                            <a href="https://aclanthology.org/2021.findings-acl.113.pdf">Paper</a>
+                            <a href="https://github.com/SXUNLP/GCRC">Data</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="publication">
+                    <div class="publication-title">A knowledge-guided framework for frame identification</div>
+                    <div class="publication-authors">Su Xuefeng; Li Ru; Li Xiaoli; Pan Jeff Z; Zhang Hu; Chai Qinghua; Han Xiaoqi; 
+</div>
+                    <div class="publication-meta">
+                        <div class="publication-venue">ACL 2021</div>
+                        <div class="publication-links">
+                            <a href="https://aclanthology.org/2021.acl-long.407/">Paper</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
